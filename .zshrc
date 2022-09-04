@@ -1,4 +1,4 @@
-# K. Kafara configuration
+# . Kafara configuration
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -106,7 +106,7 @@ bindkey -v
 export EDITOR=nvim
 
 # Custom configuration directory
-export CUSTOM_CONFIG_DIR=$HOME/custom-config/dir
+export CUSTOM_CONFIG_DIR=$HOME/custom-config-files/dir
 
 source ~/.profile
 
