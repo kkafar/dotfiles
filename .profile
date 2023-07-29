@@ -27,3 +27,8 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 source "$HOME/.cargo/env"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/kkafara/.local/share/JetBrains/Toolbox/scripts"
+
