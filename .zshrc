@@ -156,6 +156,7 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH="$PATH:$SCRIPTS_DIR/bin"
 export PATH="$PATH:$HOME/bin/idea-intellij/idea-IC-212.5080.55/bin"
 export PATH="$PATH:$HOME/bin/pycharm-2021.2.2/bin"
+export PATH="$PATH:$HOME/bin/gatling-charts-highcharts-bundle-3.8.4/bin"
 export PATH="$PATH:$ANDROID_SDK_ROOT"
 export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
 export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
@@ -167,14 +168,14 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 #######################################################
 
-# Initialization of starship prompt
-#######################################################
-eval "$(starship init zsh)"
-#######################################################
-
 # Initialization of direnv
 #######################################################
 eval "$(direnv hook zsh)"
+#######################################################
+#
+# Initialization of starship prompt
+#######################################################
+eval "$(starship init zsh)"
 #######################################################
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

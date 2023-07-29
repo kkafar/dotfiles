@@ -10,7 +10,7 @@ alias upupupup='cd ../../../../'
 alias ..='cd ..'
 alias rm='rm -v -i'
 alias mv='mv -i'
-alias vim='nvim'
+# alias vim='nvim'
 ############################################################
 
 # shorcuts
