@@ -1,0 +1,87 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=8
+
+" Do incremental searching.
+set incsearch
+
+" Display line numbers
+set number relativenumber
+
+au InsertEnter * :set number
+au InsertLeave * :set nu rnu
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+"" Custom attempt
+let mapleader = " "
+set showmatch
+set showmode
+set ideajoin
+set ignorecase
+
+
+" Plugins
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set ReplaceWithRegister
+set NERDTree
+
+" Plugin settings
+let g:argtextobj_pairs="[:],(:),<:>"
+
+nmap <C-n> :NextWholeOccurence<CR>
+nmap <leader>e :NERDTreeToggle<CR>
+nmap <leader>fe :NERDTreeFocus<CR>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+nnoremap <leader>pr :action RecentFiles<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>wu :action Unsplit<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gD :action GotoDefinition<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+nnoremap <leader>pf :action GotoFile<CR>
+nnoremap <leader>pa :action GotoAction<CR>
+nnoremap <leader>pc :action GotoClass<CR>
+nnoremap <leader>pu :action FindUsages<CR>
+nnoremap <leader>ph :action CallHierarchy<CR>
+nnoremap <leader>vmt :action ReformatCode<CR>
+nnoremap <leader>vmo :action OptimizeImports<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rs :action ChangeSignature<CR>
+nnoremap <leader>db :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dw :action ActivateDebugToolWindow<CR>
+nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
+
+nmap [[ :action MethodUp<CR>
+nmap ]] :action MethodDown<CR>
+
+"" Type :actionlist to get full IDE action list
