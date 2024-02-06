@@ -80,6 +80,12 @@ nnoremap <leader>rs :action ChangeSignature<CR>
 nnoremap <leader>db :action ToggleLineBreakpoint<CR>
 nnoremap <leader>dw :action ActivateDebugToolWindow<CR>
 nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
+
+"" Debugging
+nnoremap <leader>dt :action AddBreakpoint<CR>
+
 
 nmap [[ :action MethodUp<CR>
 nmap ]] :action MethodDown<CR>

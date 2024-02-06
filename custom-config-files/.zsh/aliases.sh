@@ -1,6 +1,6 @@
 # ALIASES
 ############################################################
-alias ll='exa -aF --long'
+alias ll='exa -F'
 alias la='ls -AF'
 alias l='ls -CF'
 alias up='cd ..'
@@ -8,9 +8,15 @@ alias upup='cd ../..'
 alias upupup='cd ../../../'
 alias upupupup='cd ../../../../'
 alias ..='cd ..'
+alias cls='clear'
 alias rm='rm -v -i'
 alias mv='mv -i'
-# alias vim='nvim'
+alias gs='git status'
+alias gp='git push'
+alias gc='git commit'
+alias gaa='git add --all'
+alias exa='exa -al --color=always --group-directories-first'
+alias cg='cargo'
 ############################################################
 
 # shorcuts
