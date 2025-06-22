@@ -1,8 +1,8 @@
 # ALIASES
 ############################################################
-alias ll='exa -F'
-alias la='ls -AF'
-alias l='ls -CF'
+alias ll='eza -F'
+alias la='eza -AF'
+alias l='eza -CF'
 alias up='cd ..'
 alias upup='cd ../..'
 alias upupup='cd ../../../'
@@ -16,6 +16,7 @@ alias gp='git push'
 alias gc='git commit'
 alias gaa='git add --all'
 alias exa='exa -al --color=always --group-directories-first'
+alias eza='eza -al --color=always --group-directories-first'
 alias cg='cargo'
 ############################################################
 
@@ -31,5 +32,6 @@ alias gt:downloads="cd $HOME/Downloads"
 # dotfiles configuation
 ############################################################
 alias dfconfig='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dfc=dfconfig
 ############################################################
 

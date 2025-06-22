@@ -134,7 +134,8 @@ export SCRIPTS_DIR=$HOME/scripts
 #######################################################
 #export JAVA_HOME=$HOME/.jdks/openjdk-15
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-export JAVA_HOME=$HOME/.jdks/zulu17.32.13-ca-jdk17.0.2-linux_x64
+# export JAVA_HOME=$HOME/.jdks/zulu17.32.13-ca-jdk17.0.2-linux_x64
+export JAVA_HOME=$HOME/.jdks/zulu18.30.11-ca-jdk18.0.1-linux_x64
 #######################################################
 
 # EDITOR
@@ -148,7 +149,6 @@ export VISUAL="nvim"
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 #######################################################
 
-
 # PATH EXTENSION
 #######################################################
 # export PATH="$PATH:/opt/mssql-tools/bin"
@@ -157,9 +157,39 @@ export PATH="$PATH:$SCRIPTS_DIR/bin"
 export PATH="$PATH:$HOME/bin/idea-intellij/idea-IC-212.5080.55/bin"
 export PATH="$PATH:$HOME/bin/pycharm-2021.2.2/bin"
 export PATH="$PATH:$HOME/bin/gatling-charts-highcharts-bundle-3.8.4/bin"
+
+# Android Studio & development
 export PATH="$PATH:$ANDROID_SDK_ROOT"
 export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
 export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+
+# Go installation
+export PATH="$PATH:$HOME/.local/go/bin"
+# Go binaries
+export PATH="$PATH:$HOME/go/bin"
+#######################################################
+
+# XDG VARIABLES
+#######################################################
+# https://specifications.freedesktop.org/basedir-spec/latest/
+
+# Default directory for user-specific data. Follows default value.
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+# User-specific config files. Follows default value.
+export XDG_CONFIG_HOME="${HOME}/.config"
+
+# User-specific state files. Follows default value.
+# State data is the "data that should persist between
+# application restarts, but that is not important
+# or portable enough to the user that it should be stored
+# in $XDG_DATA_HOME", e.g. loga, views, layout, open files, 
+# data useful on application restart.
+export XDG_CONFIG_STATE="${HOME}/.local/state"
+
+# Each of the above has its XDG_XXX_DIRS corresponding variable.
+# Check out the docs!
+
 #######################################################
 
 # fzf
@@ -183,3 +213,8 @@ eval "$(starship init zsh)"
 export SDKMAN_DIR="/home/kkafara/.sdkman"
 [[ -s "/home/kkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kkafara/.sdkman/bin/sdkman-init.sh"
 #######################################################
+
+# Node version management
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
