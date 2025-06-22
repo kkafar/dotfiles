@@ -1,0 +1,51 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && VimControl",
+    "bindings": {
+      "ctrl-w z": "workspace::ToggleCenteredLayout"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+      "space f e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Up"],
+      "space e": "workspace::ToggleLeftDock",
+      "space f e": "project_panel::ToggleFocus"
+
+      // Taken from docs, introduced just few hours before I'm creating these
+      // https://github.com/zed-industries/zed/commit/00c2a300592a38e33b9e03000c1ba67d232bebee
+      // "ctrl-w h": "workspace::ActivatePaneLeft",
+      // "ctrl-w l": "workspace::ActivatePaneRight",
+      // "ctrl-w k": "workspace::ActivatePaneUp",
+      // "ctrl-w j": "workspace::ActivatePaneDown"
+      // ... or other keybindings
+    }
+  }
+]
