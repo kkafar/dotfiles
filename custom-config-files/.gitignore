@@ -1,2 +1,5 @@
+# This file is indicated as global .gitignore by specyfing core/excludesfile
+# option in top-level .gitconfig
+
 .cfg/
 
