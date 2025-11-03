@@ -1,7 +1,19 @@
-# . Kafara configuration
+# K. Kafara configuration
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -10,7 +22,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="philips" # set by `omz`
+# ZSH_THEME="solarized-light"
+
+# Custom commands
+bindkey -v
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -25,13 +41,14 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -46,9 +63,8 @@ zstyle ':omz:update' frequency 13
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -76,145 +92,134 @@ plugins=(git vi-mode gh zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey -v
+export EDITOR='nvim'
 
-# User configuration 
-# export MANPATH="/usr/local/man:$MANPATH"
+#####################################################
+# XDG paths
+# https://specifications.freedesktop.org/basedir-spec/latest/
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+#####################################################
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+#####################################################
+# custom paths
+export SWM_PATH=$HOME/workspace/swm
+export RNS_PATH=${SWM_PATH}/react-native-screens
+#####################################################
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#####################################################
+# custom commands
+alias goto:playground="cd $HOME/workspace/playground"
+alias goto:scripts="cd $HOME/workspace/scripts"
+alias goto:workspace="cd $HOME/workspace"
+alias goto:studies="cd $HOME/studies"
+alias goto:rnr="cd $SWM_PATH/kkafar@rnr"
+alias goto:screens="cd $SWM_PATH/react-native-screens"
+alias goto:swm="cd $SWM_PATH"
+alias goto:tester="cd $SWM_PATH/rns-tester"
+alias up='..'
+alias upup='../..'
+alias upupup='../../../'
+alias upupupup='../../../../'
+alias ll='ls -AlF'
+alias androidstudio="open -a /Applications/Android\ Studio.app"
+# alias rm='rm -v'
+alias mv='mv -v'
+alias cp='cp -v'
+alias find='find -E'
+alias grep='grep -E'
+alias g='git'
+#####################################################
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# There is no /usr/local/opt/ folder
+# export PATH="/usr/local/opt/openjdk@8/bin:/usr/local/opt/ruby@2.7/bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/21.0.6113669
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin/
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# export LANG=en_US.UTF-8
-export EDITOR=nvim
+# AVD / emulator files
+# https://developer.android.com/tools/variables
+# For some reason AS started using $HOME/.config/.android,
+# need to enforce the default here.
+export ANDROID_EMULATOR_HOME=$HOME/.android
+export ANDROID_AVD_HOME=$ANDROID_EMULATOR_HOME/avd
 
-# Custom configuration directory
-export CUSTOM_CONFIG_DIR=$HOME/custom-config-files/dir
+# Rust
+export PATH=$PATH:$HOME/.cargo/bin
+#####################################################
+# Java 8
+# Azul zulu (runs natively)
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home"
+#####################################################
+# Java 15
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-15.jdk/Contents/Home"
+
+#####################################################
+# Java 17
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+#####################################################
+# AdoptOpenJDK (runs on Rosetta)
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+#####################################################
+
+
+#####################################################
+# JAVAFX 17
+export JFX_PATH="/Users/kacperkafara/Downloads/javafx/javafx-sdk-17.0.0.1/lib"
+#####################################################
+
+#####################################################
+# Custom environment variables
+export SCRIPTS_DIR="/Users/kacperkafara/workspace/scripts"
+#####################################################
+
+#####################################################
+# path modification
+homebrew_bin=/opt/homebrew/bin
+scripts_bin=$SCRIPTS_DIR/bin
+export PATH="${homebrew_bin}:$PATH"
+export PATH="$homebrew_bin/gmake:$PATH:$scripts_bin"
+unset homebrew_bin
+unset scripts_bin
+#####################################################
 
 source ~/.profile
 
-# Load aliases
-source ~/custom-config-files/.zsh/aliases.sh
+#####################################################
+# git environment variables
+source ~/.git/.gitenv
+#####################################################
 
-# gpg agent 
-############################################################
-GPG_TTY=$(tty)
-export GPG_TTY
-############################################################
-
-# path variable for javafx dependencies
-#######################################################
-export PATH_TO_FX=$HOME/.jdks/javafx-sdk-15.0.1/lib
-export PATH_TO_FX_MODS=$HOME/.jdks/javafx-jmods-15.0.1
-#######################################################
-
-# ADDITIONAL VARIABLES
-#######################################################
-export SCRIPTS_DIR=$HOME/scripts
-#######################################################
-
-# JAVA
-#######################################################
-#export JAVA_HOME=$HOME/.jdks/openjdk-15
-#export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-# export JAVA_HOME=$HOME/.jdks/zulu17.32.13-ca-jdk17.0.2-linux_x64
-export JAVA_HOME=$HOME/.jdks/zulu18.30.11-ca-jdk18.0.1-linux_x64
-#######################################################
-
-# EDITOR
-#######################################################
-export EDITOR="nvim"
-export VISUAL="nvim"
-#######################################################
-
-# ANDROID SDK
-#######################################################
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-#######################################################
-
-# PATH EXTENSION
-#######################################################
-# export PATH="$PATH:/opt/mssql-tools/bin"
-# export PATH="$PATH:/home/kkafara/.java/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin"
-export PATH="$PATH:$SCRIPTS_DIR/bin"
-export PATH="$PATH:$HOME/bin/idea-intellij/idea-IC-212.5080.55/bin"
-export PATH="$PATH:$HOME/bin/pycharm-2021.2.2/bin"
-export PATH="$PATH:$HOME/bin/gatling-charts-highcharts-bundle-3.8.4/bin"
-
-# Android Studio & development
-export PATH="$PATH:$ANDROID_SDK_ROOT"
-export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
-export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
-
-# Go installation
-export PATH="$PATH:$HOME/.local/go/bin"
-# Go binaries
-export PATH="$PATH:$HOME/go/bin"
-#######################################################
-
-# XDG VARIABLES
-#######################################################
-# https://specifications.freedesktop.org/basedir-spec/latest/
-
-# Default directory for user-specific data. Follows default value.
-export XDG_DATA_HOME="${HOME}/.local/share"
-
-# User-specific config files. Follows default value.
-export XDG_CONFIG_HOME="${HOME}/.config"
-
-# User-specific state files. Follows default value.
-# State data is the "data that should persist between
-# application restarts, but that is not important
-# or portable enough to the user that it should be stored
-# in $XDG_DATA_HOME", e.g. loga, views, layout, open files, 
-# data useful on application restart.
-export XDG_CONFIG_STATE="${HOME}/.local/state"
-
-# Each of the above has its XDG_XXX_DIRS corresponding variable.
-# Check out the docs!
-
-#######################################################
-
-# fzf
-#######################################################
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-#######################################################
-
-# Initialization of direnv
-#######################################################
-eval "$(direnv hook zsh)"
-#######################################################
-#
-# Initialization of starship prompt
-#######################################################
-eval "$(starship init zsh)"
-#######################################################
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#######################################################
-export SDKMAN_DIR="/home/kkafara/.sdkman"
-[[ -s "/home/kkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kkafara/.sdkman/bin/sdkman-init.sh"
-#######################################################
-
-# Node version management
-export NVM_DIR="$HOME/.nvm"
+#####################################################
+# NVM Setup
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#####################################################
+
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#####################################################
+# sdkman
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/kacperkafara/.sdkman"
+[[ -s "/Users/kacperkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kacperkafara/.sdkman/bin/sdkman-init.sh"
+#####################################################
+
+
+
+
+# bun completions
+[ -s "/Users/kkafara/.bun/_bun" ] && source "/Users/kkafara/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

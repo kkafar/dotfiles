@@ -62,6 +62,7 @@ nnoremap <leader>pr :action RecentFiles<CR>
 nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
 nnoremap <C-z> :action ToggleDistractionFreeMode<CR>
 nnoremap <leader>wu :action Unsplit<CR>
+
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gD :action GotoDefinition<CR>
 nnoremap gi :action GotoImplementation<CR>
@@ -83,14 +84,6 @@ nnoremap <leader>dw :action ActivateDebugToolWindow<CR>
 nnoremap <leader>to :action ActivateTerminalToolWindow<CR>
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
-
-"" New 20.07.24
-nnoremap <leader>b :action AddBreakpoint<CR>
-nnoremap <leader>cb :action AddConditionalBreakpoint<CR>
-
-"" Debugging
-nnoremap <leader>dt :action AddBreakpoint<CR>
-
 
 nmap [[ :action MethodUp<CR>
 nmap ]] :action MethodDown<CR>
