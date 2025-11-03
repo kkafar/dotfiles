@@ -192,10 +192,10 @@ export XDG_CONFIG_STATE="${HOME}/.local/state"
 # Skip omarchy bash/rc, since we're using zsh and it has some problems.
 # Use modified version of these.
 # source ~/.local/share/omarchy/default/bash/rc
-source ~/custom-config-files/.zsh/envs.sh
-source ~/custom-config-files/.zsh/aliases.sh
-source ~/custom-config-files/.zsh/functions.sh
-source ~/custom-config-files/.zsh/init.sh
+source ~/custom-config-files/zsh/envs.sh
+source ~/custom-config-files/zsh/aliases.sh
+source ~/custom-config-files/zsh/functions.sh
+source ~/custom-config-files/zsh/init.sh
 
 
 # fzf
