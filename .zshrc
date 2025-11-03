@@ -196,15 +196,17 @@ source ~/.profile
 source ~/.git/.gitenv
 #####################################################
 
+source ~/custom-config-files/zsh/aliases.sh
+source ~/custom-config-files/zsh/envs.sh
+source ~/custom-config-files/zsh/functions.sh
+source ~/custom-config-files/zsh/init.sh
+
 #####################################################
 # NVM Setup
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 #####################################################
-
-eval "$(direnv hook zsh)"
-eval "$(starship init zsh)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #####################################################
@@ -213,9 +215,6 @@ eval "$(starship init zsh)"
 export SDKMAN_DIR="/Users/kacperkafara/.sdkman"
 [[ -s "/Users/kacperkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kacperkafara/.sdkman/bin/sdkman-init.sh"
 #####################################################
-
-
-
 
 # bun completions
 [ -s "/Users/kkafara/.bun/_bun" ] && source "/Users/kkafara/.bun/_bun"
