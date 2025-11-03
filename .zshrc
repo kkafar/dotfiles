@@ -1,5 +1,6 @@
 # . Kafara configuration
 
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -106,12 +107,9 @@ bindkey -v
 export EDITOR=nvim
 
 # Custom configuration directory
-export CUSTOM_CONFIG_DIR=$HOME/custom-config-files/dir
+export CUSTOM_CONFIG_DIR=$HOME/custom-config-files/
 
-source ~/.profile
-
-# Load aliases
-source ~/custom-config-files/.zsh/aliases.sh
+# source ~/.profile
 
 # gpg agent 
 ############################################################
@@ -121,13 +119,13 @@ export GPG_TTY
 
 # path variable for javafx dependencies
 #######################################################
-export PATH_TO_FX=$HOME/.jdks/javafx-sdk-15.0.1/lib
-export PATH_TO_FX_MODS=$HOME/.jdks/javafx-jmods-15.0.1
+#export PATH_TO_FX=$HOME/.jdks/javafx-sdk-15.0.1/lib
+#export PATH_TO_FX_MODS=$HOME/.jdks/javafx-jmods-15.0.1
 #######################################################
 
 # ADDITIONAL VARIABLES
 #######################################################
-export SCRIPTS_DIR=$HOME/scripts
+#export SCRIPTS_DIR=$HOME/scripts
 #######################################################
 
 # JAVA
@@ -135,7 +133,7 @@ export SCRIPTS_DIR=$HOME/scripts
 #export JAVA_HOME=$HOME/.jdks/openjdk-15
 #export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # export JAVA_HOME=$HOME/.jdks/zulu17.32.13-ca-jdk17.0.2-linux_x64
-export JAVA_HOME=$HOME/.jdks/zulu18.30.11-ca-jdk18.0.1-linux_x64
+#export JAVA_HOME=$HOME/.jdks/zulu18.30.11-ca-jdk18.0.1-linux_x64
 #######################################################
 
 # EDITOR
@@ -151,22 +149,19 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # PATH EXTENSION
 #######################################################
-# export PATH="$PATH:/opt/mssql-tools/bin"
-# export PATH="$PATH:/home/kkafara/.java/apache-maven-3.6.3-bin/apache-maven-3.6.3/bin"
-export PATH="$PATH:$SCRIPTS_DIR/bin"
-export PATH="$PATH:$HOME/bin/idea-intellij/idea-IC-212.5080.55/bin"
-export PATH="$PATH:$HOME/bin/pycharm-2021.2.2/bin"
-export PATH="$PATH:$HOME/bin/gatling-charts-highcharts-bundle-3.8.4/bin"
+
+# Cargo
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 # Android Studio & development
-export PATH="$PATH:$ANDROID_SDK_ROOT"
-export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
-export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+# export PATH="$PATH:$ANDROID_SDK_ROOT"
+# export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+# export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 
 # Go installation
-export PATH="$PATH:$HOME/.local/go/bin"
+# export PATH="$PATH:$HOME/.local/go/bin"
 # Go binaries
-export PATH="$PATH:$HOME/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
 #######################################################
 
 # XDG VARIABLES
@@ -192,29 +187,30 @@ export XDG_CONFIG_STATE="${HOME}/.local/state"
 
 #######################################################
 
+# Load aliases & other config
+
+# Skip omarchy bash/rc, since we're using zsh and it has some problems.
+# Use modified version of these.
+# source ~/.local/share/omarchy/default/bash/rc
+source ~/custom-config-files/.zsh/envs.sh
+source ~/custom-config-files/.zsh/aliases.sh
+source ~/custom-config-files/.zsh/functions.sh
+source ~/custom-config-files/.zsh/init.sh
+
+
 # fzf
 #######################################################
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-#######################################################
-
-# Initialization of direnv
-#######################################################
-eval "$(direnv hook zsh)"
-#######################################################
-#
-# Initialization of starship prompt
-#######################################################
-eval "$(starship init zsh)"
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
 #######################################################
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 #######################################################
-export SDKMAN_DIR="/home/kkafara/.sdkman"
-[[ -s "/home/kkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kkafara/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="/home/kkafara/.sdkman"
+# [[ -s "/home/kkafara/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kkafara/.sdkman/bin/sdkman-init.sh"
 #######################################################
 
 # Node version management
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
