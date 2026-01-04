@@ -187,6 +187,9 @@ export PATH="${homebrew_bin}:$PATH"
 export PATH="$homebrew_bin/gmake:$PATH:$scripts_bin"
 unset homebrew_bin
 unset scripts_bin
+
+# Docker
+export PATH="$PATH:$HOME/.docker/bin:$HOME/.docker/cli-plugins"
 #####################################################
 
 source ~/.profile
@@ -222,3 +225,4 @@ export SDKMAN_DIR="/Users/kacperkafara/.sdkman"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
