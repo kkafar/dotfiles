@@ -10,16 +10,16 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5"
+      "model": "gpt-5",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
   "tabs": {
-    "close_position": "left"
+    "close_position": "left",
   },
   "use_smartcase_search": true,
   "load_direnv": "shell_hook",
@@ -30,18 +30,18 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Frappé - No Italics"
+    "dark": "Catppuccin Frappé - No Italics",
   },
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "lsp": {
     "biome": {
       "settings": {
-        "require_config_file": true
-      }
-    }
-  }
+        "require_config_file": true,
+      },
+    },
+  },
 }
