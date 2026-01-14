@@ -106,6 +106,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # custom paths
 export SWM_PATH=$HOME/workspace/swm
 export RNS_PATH=${SWM_PATH}/react-native-screens
+export RNS_WT=${SWM_PATH}/react-native-screens-worktrees
 #####################################################
 
 #####################################################
