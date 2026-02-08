@@ -181,6 +181,7 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 # in $XDG_DATA_HOME", e.g. loga, views, layout, open files, 
 # data useful on application restart.
 export XDG_CONFIG_STATE="${HOME}/.local/state"
+export XDG_STATE_HOME="${HOME}/.local/state"
 
 # Each of the above has its XDG_XXX_DIRS corresponding variable.
 # Check out the docs!
