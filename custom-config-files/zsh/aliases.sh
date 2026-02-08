@@ -11,13 +11,9 @@ alias ..='cd ..'
 alias cls='clear'
 alias rm='rm -v -i'
 alias mv='mv -i'
-alias gs='git status'
-alias gp='git push'
-alias gc='git commit'
-alias gaa='git add --all'
-alias exa='exa -al --color=always --group-directories-first'
 alias eza='eza -al --color=always --group-directories-first'
 alias cg='cargo'
+alias lg='lazygit'
 
 # Taken from Omarchy configuration
 
@@ -41,4 +37,7 @@ alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias dfconfig='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
 alias dfc=dfconfig
 ############################################################
+
+# gt configuration
+alias gd='gdimpl'
 
