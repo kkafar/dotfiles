@@ -7,34 +7,32 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "colorize_brackets": true,
+  "gutter": {
+    "line_numbers": true,
+  },
+  "code_lens": "menu",
+  "toolbar": {
+    "code_actions": true,
+  },
+  "tab_bar": {
+    "show": true,
+  },
+  "file_finder": {
+    "modal_max_width": "medium",
+  },
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
+    "hide_root": false,
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "left"
-  },
-  "agent_servers": {
-    "claude-acp": {
-      "type": "registry"
-    }
-  },
-  "agent": {
-    "dock": "right",
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5.1-codex",
-    },
-    "model_parameters": [],
-    "tool_permissions": {
-      "default": "allow"
-    },
+    "dock": "left",
   },
   "telemetry": {
     "metrics": false,
@@ -46,10 +44,15 @@
   "file_types": {
     "C++": ["*.mm", "*.m"],
   },
+  // Code editting
+  "inlay_hints": {
+    "enabled": true,
+  },
   "use_smartcase_search": true,
   "load_direnv": "shell_hook",
   "base_keymap": "JetBrains",
   "vertical_scroll_margin": 8,
+  "horizontal_scroll_margin": 8,
   "ui_font_size": 16,
   "buffer_font_size": 16.0,
   "theme": {
@@ -62,34 +65,181 @@
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
   },
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 500,
+  },
   "lsp": {
     "vtsls": {
       "settings": {
         "typescript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
+            "enabled": "always",
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
-            "enabled": "always"
-          }
-        }
+            "enabled": "always",
+          },
+        },
       },
-      "enable_lsp_tasks": true
+      "enable_lsp_tasks": true,
     },
     "biome": {
       "settings": {
         "require_config_file": true,
       },
     },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"],
+      },
+    },
+  },
+  // AI
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "provider": "copilot",
   },
   "context_servers": {
     "argent": {
       "command": "argent",
-      "args": [
-        "mcp"
-      ]
-    }
+      "args": ["mcp"],
+    },
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "reasoning_effort": "high",
+      },
+      "type": "registry",
+    },
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "agent": {
+    "dock": "right",
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5.1-codex",
+    },
+    "model_parameters": [],
+    "profiles": {
+      "write": {
+        "name": "Write Code",
+        "tools": {
+          "edit_file": true,
+          "create_file": true,
+          "delete_file": true,
+          "rename_file": true,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": true,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+      },
+      "review": {
+        "name": "Code Review",
+        "tools": {
+          "edit_file": false,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": false,
+          "search": true,
+          "fetch": true,
+          "run_command": false,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": false,
+          "create_task": false,
+        },
+        "enable_all_context_servers": true,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+      "debug": {
+        "name": "Debug",
+        "tools": {
+          "edit_file": true,
+          "create_file": false,
+          "delete_file": false,
+          "rename_file": false,
+          "find_file": true,
+          "terminal": true,
+          "search": true,
+          "fetch": true,
+          "run_command": true,
+          "copy_path": true,
+          "move_path": false,
+          "open_file": true,
+          "go_to_file": true,
+          "set_context": true,
+          "set_files": true,
+          "spawn_agent": true,
+          "create_task": false,
+        },
+        "enable_all_context_servers": false,
+        "default_model": {
+          "provider": "opencode",
+          "model": "free/minimax-m2.5-free",
+        },
+      },
+    },
+    "tool_permissions": {
+      "default": "confirm",
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^(cargo|npm|bun|pnpm|yarn|deno)\\s+(build|test|check|run|format|lint|fix)",
+            },
+            {
+              "pattern": "^(git\\s+(add|commit|diff|log|status|push|pull|branch\\s+-[Dd]))",
+            },
+            {
+              "pattern": "^(ls|cat|head|tail|wc|echo|pwd|which|type|file)",
+            },
+          ],
+          "always_deny": [
+            {
+              "pattern": "^(sudo|su|doas)\\s",
+            },
+            {
+              "pattern": "^rm\\s+-[rf]\\s+/",
+            },
+          ],
+        },
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https://(api\\.)?github\\.com",
+            },
+            {
+              "pattern": "^https://raw\\.githubusercontent\\.com",
+            },
+          ],
+        },
+      },
+    },
   },
 }
