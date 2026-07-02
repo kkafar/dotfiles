@@ -18,6 +18,8 @@ alias gaa='git add --all'
 alias exa='exa -al --color=always --group-directories-first'
 alias eza='eza -al --color=always --group-directories-first'
 alias cg='cargo'
+alias lg='lazygit'
+alias tx=tmux
 
 # Taken from Omarchy configuration
 
@@ -42,3 +44,5 @@ alias dfconfig='/usr/bin/git --git-dir=$HOME/dotfiles.git/ --work-tree=$HOME'
 alias dfc=dfconfig
 ############################################################
 
+# gt configuration
+alias gd='gdimpl'

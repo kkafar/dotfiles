@@ -131,6 +131,7 @@ alias cp='cp -v'
 alias find='find -E'
 alias grep='grep -E'
 alias g='git'
+alias lg='lazygit'
 #####################################################
 
 # There is no /usr/local/opt/ folder
@@ -191,6 +192,13 @@ unset scripts_bin
 
 # Docker
 export PATH="$PATH:$HOME/.docker/bin:$HOME/.docker/cli-plugins"
+
+# claude
+export PATH="$HOME/.local/bin:${PATH}"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 #####################################################
 
 source ~/.profile
@@ -222,8 +230,4 @@ export SDKMAN_DIR="/Users/kacperkafara/.sdkman"
 
 # bun completions
 [ -s "/Users/kkafara/.bun/_bun" ] && source "/Users/kkafara/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 

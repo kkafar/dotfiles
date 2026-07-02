@@ -118,10 +118,6 @@
       // Show project panel with current file
       "space e": "pane::RevealInProjectPanel",
 
-      // Code
-      "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp",
-
       // Window resize
       "ctrl-shift-k": "vim::ResizePaneUp",
       "ctrl-shift-j": "vim::ResizePaneDown",

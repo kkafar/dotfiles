@@ -1,3 +1,22 @@
+# gt integration
+# This uses gt to resolve the alias and then cd into the resulting directory
+# Note: I can't use just gd, because someone aliases it later for `git diff`
+# and I can not find where the alias is done...
+gdimpl() {
+  if [ $# -eq 0 ]; then
+    echo "usage: gd <alias>" >&2
+    return 1
+  fi
+
+  local dest
+  if ! dest="$(gt query "$1")"; then
+    echo "gt: failed to resolve alias '$1'" >&2
+    return 1
+  fi
+
+  cd "$dest"
+}
+
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
